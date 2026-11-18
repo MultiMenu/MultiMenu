@@ -1,0 +1,207 @@
+{
+  "Name": "MultiMenu",
+  "Version": "3.1.1.0",
+  "Author": "MultiMenu",
+  "Description": "Launch alts, start presets, switch windows and more in MultiMenu from your Stream Deck.",
+  "URL": "https://github.com/MultiMenu/MultiMenu",
+  "UUID": "com.multimenu.app",
+  "Icon": "imgs/plugin",
+  "Category": "MultiMenu",
+  "CategoryIcon": "imgs/category",
+  "CodePath": "bin/plugin.js",
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "6.4"
+  },
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Nodejs": {
+    "Version": "20",
+    "Debug": "disabled"
+  },
+  "Actions": [
+    {
+      "Name": "Launch account",
+      "UUID": "com.multimenu.app.launch",
+      "Icon": "imgs/actions/launch",
+      "Tooltip": "Launch an account, a tag (tag:farm) or all",
+      "PropertyInspectorPath": "ui/pi.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/keys/launch",
+          "TitleAlignment": "bottom",
+          "FontSize": 11
+        }
+      ],
+      "SupportedInMultiActions": true
+    },
+    {
+      "Name": "Preset",
+      "UUID": "com.multimenu.app.preset",
+      "Icon": "imgs/actions/preset",
+      "Tooltip": "Start or close a MultiMenu preset",
+      "PropertyInspectorPath": "ui/pi.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/keys/preset",
+          "TitleAlignment": "bottom",
+          "FontSize": 11
+        }
+      ],
+      "SupportedInMultiActions": true
+    },
+    {
+      "Name": "Switch to alt",
+      "UUID": "com.multimenu.app.focus",
+      "Icon": "imgs/actions/focus",
+      "Tooltip": "Bring an alt's Roblox window to the front",
+      "PropertyInspectorPath": "ui/pi.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/keys/focus",
+          "TitleAlignment": "bottom",
+          "FontSize": 11
+        }
+      ],
+      "SupportedInMultiActions": true
+    },
+    {
+      "Name": "Rejoin",
+      "UUID": "com.multimenu.app.rejoin",
+      "Icon": "imgs/actions/rejoin",
+      "Tooltip": "Restart an account into its game",
+      "PropertyInspectorPath": "ui/pi.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/keys/rejoin",
+          "TitleAlignment": "bottom",
+          "FontSize": 11
+        }
+      ],
+      "SupportedInMultiActions": true
+    },
+    {
+      "Name": "Close",
+      "UUID": "com.multimenu.app.close",
+      "Icon": "imgs/actions/close",
+      "Tooltip": "Close an account, a tag or all",
+      "PropertyInspectorPath": "ui/pi.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/keys/close",
+          "TitleAlignment": "bottom",
+          "FontSize": 11
+        }
+      ],
+      "SupportedInMultiActions": true
+    },
+    {
+      "Name": "Tile windows",
+      "UUID": "com.multimenu.app.tile",
+      "Icon": "imgs/actions/tile",
+      "Tooltip": "Arrange every Roblox window",
+      "PropertyInspectorPath": "ui/pi.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/keys/tile",
+          "TitleAlignment": "bottom",
+          "FontSize": 11
+        }
+      ],
+      "SupportedInMultiActions": true
+    },
+    {
+      "Name": "24/7 Watcher",
+      "UUID": "com.multimenu.app.watcher",
+      "Icon": "imgs/actions/watcher",
+      "Tooltip": "Turn the 24/7 Watcher on or off",
+      "PropertyInspectorPath": "ui/pi.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/keys/watcher-off",
+          "TitleAlignment": "bottom",
+          "FontSize": 11,
+          "Name": "Off"
+        },
+        {
+          "Image": "imgs/keys/watcher",
+          "TitleAlignment": "bottom",
+          "FontSize": 11,
+          "Name": "On"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "DisableAutomaticStates": true
+    },
+    {
+      "Name": "Eco mode",
+      "UUID": "com.multimenu.app.eco",
+      "Icon": "imgs/actions/eco",
+      "Tooltip": "Eco mode for background alts",
+      "PropertyInspectorPath": "ui/pi.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/keys/eco-off",
+          "TitleAlignment": "bottom",
+          "FontSize": 11,
+          "Name": "Off"
+        },
+        {
+          "Image": "imgs/keys/eco",
+          "TitleAlignment": "bottom",
+          "FontSize": 11,
+          "Name": "On"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "DisableAutomaticStates": true
+    },
+    {
+      "Name": "Status",
+      "UUID": "com.multimenu.app.status",
+      "Icon": "imgs/actions/status",
+      "Tooltip": "Running alts and RAM. Press to open the alt switcher.",
+      "PropertyInspectorPath": "ui/pi.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/keys/status",
+          "TitleAlignment": "middle",
+          "FontSize": 11,
+          "ShowTitle": true
+        }
+      ],
+      "SupportedInMultiActions": true
+    }
+  ]
+}
