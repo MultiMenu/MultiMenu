@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://*.rbxcdn.com; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+  <title>MultiMenu Mini</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="mini">
+  <div class="bg-gradient"></div>
+  <header class="titlebar">
+    <div class="brand-mini">Multi<span style="color:var(--accent)">Menu</span> · Mini</div>
+    <div class="win-btns">
+      <button id="m-compact" title="Compact strip"></button>
+      <button id="m-main" title="Open MultiMenu"></button>
+      <button id="m-close" class="close" title="Close mini panel"></button>
+    </div>
+  </header>
+  <div class="shell"><main class="main" id="mini-root"></main></div>
+  <div id="mini-strip"></div>
+  <div id="toasts"></div>
+  <div id="modal-root"></div>
+  <script src="js/icons.js"></script>
+  <script src="js/translate.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/mini.js"></script>
+</body>
+</html>

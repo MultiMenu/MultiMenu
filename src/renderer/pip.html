@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self' blob: mediastream:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+  <title>MultiMenu PiP</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="pip">
+  <header class="pip-bar">
+    <span class="pip-dot"></span>
+    <select id="p-pick" class="pip-pick" title="Show another account" data-nt></select>
+    <span class="spacer"></span>
+    <button id="p-focus" title="Switch to this window"></button>
+    <button id="p-close" class="close" title="Close picture-in-picture"></button>
+  </header>
+  <div class="pip-view">
+    <video id="p-video" autoplay muted playsinline></video>
+    <div class="pip-msg" id="p-msg">Connecting…</div>
+  </div>
+  <div id="toasts"></div>
+  <div id="modal-root"></div>
+  <script src="js/icons.js"></script>
+  <script src="js/translate.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pip.js"></script>
+</body>
+</html>

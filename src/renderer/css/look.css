@@ -1,0 +1,142 @@
+/* MultiMenu 2.0 — light mode, compact spacing, high contrast, and keyboard focus.
+   Set on <html> by MM.applyAppearance: data-mode, data-density, data-contrast. */
+
+/* ---------- light mode ---------- */
+html[data-mode="light"] {
+  color-scheme: light;
+  --lb: 100%; --ls: -1; --hl: 50, 25, 90;
+  --bg: #f5f2fb;
+  --bg-2: #ffffff;
+  --panel: hsla(var(--hue), 60%, 99%, .82);
+  --panel-solid: hsl(var(--hue), 45%, 98.5%);
+  --panel-hi: hsla(var(--hue), 70%, 95%, .9);
+  --border: hsla(var(--hue), 35%, 35%, .16);
+  --border-hi: hsla(var(--hue), 70%, 50%, .42);
+  --accent: hsl(var(--hue), 72%, 52%);
+  --accent-2: hsl(var(--hue2), 72%, 50%);
+  --accent-soft: hsla(var(--hue), 85%, 55%, .13);
+  --lavender: hsl(var(--hue), 62%, 40%);
+  --text: #1c1330;
+  --muted: #5b5073;
+  --dim: #877d9d;
+  --ok: #047857; --warn: #b45309; --err: #dc2626; --info: hsl(var(--hue), 65%, 42%);
+  --glow: 0 0 0 1px var(--border-hi), 0 0 calc(16px * var(--glow-k)) hsla(var(--hue), 90%, 60%, calc(.16 * var(--glow-k)));
+}
+html[data-mode="light"] ::selection { background: hsla(var(--hue), 90%, 60%, .25); }
+html[data-mode="light"] .bg-gradient {
+  background:
+    radial-gradient(40% 35% at 20% 15%, hsla(var(--hue), 90%, 75%, .35), transparent 70%),
+    radial-gradient(35% 40% at 85% 25%, hsla(var(--hue2), 90%, 78%, .28), transparent 70%),
+    radial-gradient(45% 45% at 60% 95%, hsla(calc(var(--hue) - 15), 85%, 80%, .30), transparent 70%),
+    linear-gradient(160deg, #faf8fe 0%, #f1ebfb 50%, #f8f5fd 100%);
+}
+html[data-mode="light"] body.bg-solid .bg-gradient { background: linear-gradient(160deg, hsl(var(--hue), 40%, 97%), hsl(var(--hue), 35%, 95%)); }
+html[data-mode="light"] .bg-custom::after { background: rgba(250, 248, 254, var(--bg-dim)); }
+html[data-mode="light"] .grain { display: none; }
+html[data-mode="light"] .card { box-shadow: 0 6px 24px hsla(var(--hue), 40%, 30%, .08), inset 0 1px 0 rgba(255, 255, 255, .7); }
+html[data-mode="light"] .modal-back { background: rgba(40, 25, 70, .28); }
+html[data-mode="light"] .modal, html[data-mode="light"] .palette, html[data-mode="light"] .toast, html[data-mode="light"] .mm-menu { box-shadow: 0 24px 60px hsla(var(--hue), 40%, 25%, .22); }
+/* Text that was white on dark. */
+html[data-mode="light"] :is(.nav-item.active, .seg button.on, .tab.on, .chip.on, .layout-btn.on, .days button.on, .hub-tab.on) { color: var(--text); }
+html[data-mode="light"] .callout { color: var(--text); }
+html[data-mode="light"] .btn { --b: hsla(var(--hue), 70%, 60%, .1); }
+html[data-mode="light"] .btn:hover:not(:disabled) { box-shadow: 0 4px 14px hsla(var(--hue), 80%, 55%, .16); }
+html[data-mode="light"] .btn.ghost { --b: transparent; }
+html[data-mode="light"] .btn.ghost:hover:not(:disabled) { --b: hsla(var(--hue), 70%, 60%, .12); }
+html[data-mode="light"] .btn.danger { --b: rgba(239, 68, 68, .08); }
+html[data-mode="light"] .btn .count, html[data-mode="light"] .badge { background: hsla(var(--hue), 70%, 60%, .14); }
+html[data-mode="light"] .btn.danger { color: #b91c1c; }
+html[data-mode="light"] .tb-btn.danger { color: #dc2626; }
+html[data-mode="light"] .badge.ok { color: #047857; background: rgba(16, 185, 129, .12); }
+html[data-mode="light"] .badge.warn { color: #92400e; background: rgba(245, 158, 11, .14); }
+html[data-mode="light"] .badge.err { color: #b91c1c; background: rgba(239, 68, 68, .1); }
+html[data-mode="light"] .acc .fav.on { color: #d97706; filter: none; }
+html[data-mode="light"] .logo-text span { text-shadow: none; }
+html[data-mode="light"] select.input option { background: #fff; color: var(--text); }
+html[data-mode="light"] .toggle input:not(:checked) + .sw { background: hsla(var(--hue), 20%, 70%, .45); }
+html[data-mode="light"] .toggle .sw::after { background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .25); }
+html[data-mode="light"] .logview { background: #fbfaff; }
+html[data-mode="light"] .safe-banner b { color: #92400e; }
+html[data-mode="light"] .timeline .ph { background: var(--accent); box-shadow: none; }
+html[data-mode="light"] .tile-cell .lbl, html[data-mode="light"] .tile-cell.sel { color: var(--text); }
+html[data-mode="light"] .tile-cell.sel { border-color: var(--accent); }
+html[data-mode="light"] ::-webkit-scrollbar-thumb { background-color: hsla(var(--hue), 30%, 45%, .3); }
+/* Things that always stay dark: pictures of Roblox, theme previews, the shareable cards. */
+html[data-mode="light"] :is(.pcard, .wrapped, .wr-back, .wr-card, .theme-swatch, .gal-prev, .wt-shot, .pip-view) {
+  --lb: 0%; --ls: 1; --hl: 255, 255, 255; color-scheme: dark; color: #efe9fb;
+  --text: #efe9fb; --muted: #a99bc4; --dim: #6f6288; --lavender: hsl(var(--hue), 100%, 86%); --accent: hsl(var(--hue), 92%, 64%);
+  --border: hsla(var(--hue), 80%, 70%, .14); --border-hi: hsla(var(--hue), 90%, 72%, .38);
+}
+
+/* ---------- compact spacing ---------- */
+html[data-density="compact"] { --radius: 12px; --radius-sm: 8px; }
+html[data-density="compact"] body { font-size: 13px; }
+html[data-density="compact"] .card { padding: 13px; }
+html[data-density="compact"] .page-head { margin: 0 0 12px; }
+html[data-density="compact"] .page-head h1 { font-size: 23px; }
+html[data-density="compact"] .btn { height: 31px; padding: 0 11px; }
+html[data-density="compact"] .btn.sm { height: 26px; padding: 0 8px; }
+html[data-density="compact"] .btn.icon { width: 31px; padding: 0; }
+html[data-density="compact"] .btn.sm.icon { width: 26px; }
+html[data-density="compact"] .btn.big { height: 38px; }
+html[data-density="compact"] .input, html[data-density="compact"] select.input { height: 32px; }
+html[data-density="compact"] .input.sm { height: 26px; }
+html[data-density="compact"] .item { padding: 7px 10px; gap: 10px; }
+html[data-density="compact"] .setting-row { padding: 8px 0; }
+html[data-density="compact"] .nav-item { height: 34px; }
+html[data-density="compact"] .tbl td { padding: 6px 8px; }
+html[data-density="compact"] .hub-tab { height: 31px; padding: 0 12px; }
+html[data-density="compact"] .grid, html[data-density="compact"] .stack { gap: 10px; }
+
+/* ---------- high contrast ---------- */
+html[data-contrast="high"] {
+  --border: hsla(var(--hue), 40%, 80%, .45);
+  --border-hi: hsl(var(--hue), 90%, 78%);
+  --muted: #ddd3f0;
+  --dim: #b9aed0;
+  --panel: hsl(var(--hue), 35%, 7%);
+  --panel-solid: hsl(var(--hue), 35%, 6%);
+  --glow-k: 0;
+}
+html[data-contrast="high"][data-mode="light"] {
+  --border: hsla(var(--hue), 30%, 20%, .55);
+  --border-hi: hsl(var(--hue), 80%, 35%);
+  --text: #000;
+  --muted: #2e2440;
+  --dim: #4a3f5e;
+  --panel: #fff;
+  --panel-solid: #fff;
+  --accent: hsl(var(--hue), 80%, 40%);
+}
+html[data-contrast="high"] .card, html[data-contrast="high"] .sidebar { backdrop-filter: none; }
+html[data-contrast="high"] .item, html[data-contrast="high"] .chip, html[data-contrast="high"] .seg { border-color: var(--border); }
+html[data-contrast="high"] .badge { border-color: currentColor; }
+html[data-contrast="high"] #particles, html[data-contrast="high"] .grain { display: none; }
+html[data-contrast="high"] a { text-decoration: underline; }
+
+/* ---------- keyboard focus (all modes) ---------- */
+:is(button, a, input, select, textarea, summary, [tabindex]):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+html[data-contrast="high"] :is(button, a, input, select, textarea, summary, [tabindex]):focus-visible { outline-width: 3px; outline-color: var(--border-hi); }
+.input:focus-visible { outline: none; }
+.skip-link { position: fixed; left: 12px; top: -60px; z-index: 400; padding: 8px 14px; border-radius: 10px; background: var(--panel-solid); border: 1px solid var(--border-hi); color: var(--text); }
+.skip-link:focus { top: 44px; }
+
+/* Windows high-contrast themes */
+@media (forced-colors: active) {
+  .btn, .item, .chip, .seg button, .toggle .sw, .card { border: 1px solid CanvasText; }
+  .btn.primary { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+}
+
+/* ---------- keyboard shortcuts help (the "?" key) ---------- */
+.keys-help { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 26px; }
+.keys-help > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.keys-help kbd, .kbd { font: 600 11.5px var(--font); padding: 2px 7px; border-radius: 6px; border: 1px solid var(--border-hi); background: var(--accent-soft); white-space: nowrap; }
+.keys-help .grp { grid-column: 1 / -1; border: 0; padding: 12px 0 2px; color: var(--muted); font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+
+/* ---------- fonts for Japanese, Korean, Chinese and Thai ---------- */
+:lang(ja) { --font: 'Inter', 'Yu Gothic UI', 'Meiryo UI', 'Meiryo', 'Segoe UI', sans-serif; --display: 'Space Grotesk', 'Yu Gothic UI', 'Meiryo UI', sans-serif; }
+:lang(ko) { --font: 'Inter', 'Malgun Gothic', 'Segoe UI', sans-serif; --display: 'Space Grotesk', 'Malgun Gothic', sans-serif; }
+:lang(zh) { --font: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Segoe UI', sans-serif; --display: 'Space Grotesk', 'Microsoft YaHei UI', sans-serif; }
+:lang(th) { --font: 'Inter', 'Leelawadee UI', 'Tahoma', 'Segoe UI', sans-serif; --display: 'Space Grotesk', 'Leelawadee UI', sans-serif; }
+:is(:lang(ja), :lang(ko), :lang(zh)) body { line-height: 1.6; word-break: normal; overflow-wrap: anywhere; }
+:lang(th) body { line-height: 1.7; }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob: https://*.rbxcdn.com; media-src blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+  <title>MultiMenu</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/v2.css">
+  <link rel="stylesheet" href="css/look.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" id="skip-link">Skip to content</a>
+  <div class="bg-gradient"></div>
+  <div class="bg-custom" id="bg-custom"></div>
+  <canvas id="particles"></canvas>
+  <div class="grain"></div>
+
+  <div id="loader">
+    <div class="inner">
+      <div class="ring"><div class="logo-mark">M</div></div>
+      <h1>Multi<span>Menu</span></h1>
+      <p id="loader-text">Initialising</p>
+      <div class="bar"><i></i></div>
+    </div>
+  </div>
+
+  <header class="titlebar">
+    <div class="brand-mini" lang="en">MultiMenu</div>
+    <div class="tb-actions">
+      <button class="tb-queue hidden" id="tb-queue" title="Launch queue"></button>
+      <button class="tb-safe hidden" id="tb-safe" title="Background features are off. Click to restart normally."></button>
+      <button class="tb-btn danger" id="tb-estop" title="Emergency stop: stops the auto clicker and macros"></button>
+      <button class="tb-btn" id="tb-mini" title="Mini panel"></button>
+      <button class="tb-btn" id="tb-bell" title="Notifications"></button>
+    </div>
+    <div class="win-btns">
+      <button id="win-min" title="Minimise"></button>
+      <button id="win-max" title="Maximise"></button>
+      <button id="win-close" class="close" title="Close"></button>
+    </div>
+  </header>
+
+  <div class="shell">
+    <nav class="sidebar" id="sidebar" aria-label="Sections"></nav>
+    <main class="main" id="main" tabindex="-1"></main>
+  </div>
+
+  <div id="toasts"></div>
+  <div id="modal-root"></div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/translate.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/v2.js"></script>
+  <script src="js/a11y.js"></script>
+  <script src="js/tour.js"></script>
+  <script src="js/pages/dashboard.js"></script>
+  <script src="js/pages/wall.js"></script>
+  <script src="js/pages/accounts.js"></script>
+  <script src="js/pages/creator.js"></script>
+  <script src="js/pages/sessions.js"></script>
+  <script src="js/pages/watcher.js"></script>
+  <script src="js/pages/stats.js"></script>
+  <script src="js/pages/timeline.js"></script>
+  <script src="js/pages/achievements.js"></script>
+  <script src="js/pages/presets.js"></script>
+  <script src="js/pages/scaling.js"></script>
+  <script src="js/pages/servers.js"></script>
+  <script src="js/pages/perf.js"></script>
+  <script src="js/pages/performance.js"></script>
+  <script src="js/pages/trimmer.js"></script>
+  <script src="js/pages/rules.js"></script>
+  <script src="js/pages/automation.js"></script>
+  <script src="js/pages/discord.js"></script>
+  <script src="js/pages/alertapps.js"></script>
+  <script src="js/launchqueue.js"></script>
+  <script src="js/layouteditor.js"></script>
+  <script src="js/pages/updates.js"></script>
+  <script src="js/pages/doctor.js"></script>
+  <script src="js/pages/settings.js"></script>
+  <script src="js/pages/card.js"></script>
+  <script src="js/pages/capacity.js"></script>
+  <script src="js/pages/theme.js"></script>
+  <script src="js/pages/gallery.js"></script>
+  <script src="js/extras.js"></script>
+  <script src="js/admin/runtime.js"></script>
+  <script src="js/admin/pages.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/wizard.js"></script>
+  <script src="js/pages/hatch.js"></script>
+  <script src="js/v31.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
