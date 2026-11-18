@@ -1,0 +1,125 @@
+name: Build & Release
+
+# Builds MultiMenu-Setup.exe + MultiMenu-Portable.zip on Windows and attaches
+# them to the GitHub Release for the version in package.json (v<version>).
+# Installed copies of MultiMenu pick it up automatically.
+#
+# Start it any of these ways:
+#  - publish a release on GitHub (tag v1.2.0, or v1.3.0-beta.1 for beta)
+#  - push a tag like v1.2.0
+#  - Actions -> Build & Release -> Run workflow
+#  - change this workflow file on main
+on:
+  push:
+    tags: ['v*']
+    branches: [main]
+    paths: ['.github/workflows/release.yml']
+  release:
+    types: [published]
+  workflow_dispatch:
+
+concurrency:
+  group: release-${{ github.event.release.tag_name || github.ref_name }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Work out the release tag
+        id: ver
+        shell: bash
+        run: |
+          PKG=$(node -p "require('./package.json').version")
+          echo "tag=v$PKG" >> "$GITHUB_OUTPUT"
+          if [[ "$GITHUB_REF" == refs/tags/* && "${GITHUB_REF_NAME#v}" != "$PKG" ]]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match package.json version $PKG"; exit 1
+          fi
+
+      - name: Point the updater at this repository
+        shell: bash
+        run: node -e "const f='package.json',p=require('./'+f);p.multimenu.updateRepo=process.env.GITHUB_REPOSITORY;require('fs').writeFileSync(f,JSON.stringify(p,null,2))"
+
+      - name: Build installer and portable zip
+        run: npm run dist
+        env:
+          # Optional code signing: add these repository secrets to sign the .exe.
+          CSC_LINK: ${{ secrets.CSC_LINK }}
+          CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
+
+      - name: Self-test portable build on Windows
+        shell: pwsh
+        run: |
+          Expand-Archive dist/MultiMenu-Portable.zip -DestinationPath $env:RUNNER_TEMP/portable -Force
+          $p = Start-Process "$env:RUNNER_TEMP/portable/MultiMenu.exe" -ArgumentList '--self-test' -PassThru -Wait
+          node scripts/check-selftest.js "$env:RUNNER_TEMP/portable/MultiMenu-Data/selftest.json" true
+
+      - name: Install and self-test installer build on Windows
+        shell: pwsh
+        run: |
+          Start-Process dist/MultiMenu-Setup.exe -ArgumentList '/S' -Wait
+          $exe = "$env:LOCALAPPDATA/Programs/MultiMenu/MultiMenu.exe"
+          if (!(Test-Path $exe)) { throw "Installer did not install MultiMenu.exe" }
+          if (!(Test-Path "$env:LOCALAPPDATA/Programs/MultiMenu/Uninstall MultiMenu.exe")) { throw "Uninstaller missing" }
+          Start-Process $exe -ArgumentList '--self-test' -PassThru -Wait
+          node scripts/check-selftest.js "$env:APPDATA/MultiMenu/selftest.json" false
+          Start-Process "$env:LOCALAPPDATA/Programs/MultiMenu/Uninstall MultiMenu.exe" -ArgumentList '/S' -Wait
+
+      - name: Build patches from the previous release (smaller updates)
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          THIS_TAG: ${{ steps.ver.outputs.tag }}
+        run: |
+          mkdir -p prev
+          PREV=$(gh release list --limit 20 --json tagName,isDraft --jq '[.[] | select(.isDraft | not) | .tagName | select(. != env.THIS_TAG)][0]' || true)
+          if [ -n "$PREV" ]; then gh release download "$PREV" --pattern MultiMenu-Portable.zip --dir prev || true; fi
+          node scripts/make-patches.js prev/MultiMenu-Portable.zip dist/MultiMenu-Portable.zip dist
+
+      - name: Copy the Stream Deck plugin next to the installers
+        run: Copy-Item streamdeck/dist/MultiMenu.streamDeckPlugin dist/
+      - name: Generate checksums
+        run: npm run checksums
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: MultiMenu-${{ steps.ver.outputs.tag }}
+          path: |
+            dist/MultiMenu-Setup.exe
+            dist/MultiMenu-Portable.zip
+            dist/MultiMenu-files.json
+            dist/MultiMenu.streamDeckPlugin
+            dist/*.mmpatch
+            dist/SHA256SUMS.txt
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.ver.outputs.tag }}
+          name: MultiMenu ${{ steps.ver.outputs.tag }}
+          prerelease: ${{ contains(steps.ver.outputs.tag, '-') }}
+          body_path: CHANGELOG-release.md
+          files: |
+            dist/MultiMenu-Setup.exe
+            dist/MultiMenu-Portable.zip
+            dist/MultiMenu-files.json
+            dist/MultiMenu.streamDeckPlugin
+            dist/*.mmpatch
+            dist/SHA256SUMS.txt

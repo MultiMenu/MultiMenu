@@ -1,0 +1,67 @@
+appId: com.multimenu.app
+productName: MultiMenu
+copyright: Copyright © 2026 MultiMenu
+directories:
+  output: dist
+  buildResources: build
+files:
+  - package.json
+  - src/**/*
+  - build/icon.png
+  - build/tray.png
+  - "!**/*.map"
+  # translation tooling (the language files themselves are shipped)
+  - "!src/i18n/keys*"
+  - "!src/i18n/extra.json"
+  - "!src/i18n/ignore.json"
+  # koffi ships prebuilt binaries for every platform: keep only Windows x64.
+  - "!node_modules/koffi/build/koffi/!(win32_x64)/**"
+  - "!node_modules/koffi/src/**"
+  - "!node_modules/koffi/vendor/**"
+  - "!node_modules/koffi/doc/**"
+# The command-line helper sits next to MultiMenu.exe; the Stream Deck plugin goes in resources.
+extraFiles:
+  - from: build/mm.cmd
+    to: mm.cmd
+  - from: NOTICE.md
+    to: NOTICE.md
+  - from: LICENSE.txt
+    to: LICENSE.txt
+extraResources:
+  - from: streamdeck/dist/MultiMenu.streamDeckPlugin
+    to: MultiMenu.streamDeckPlugin
+asar: true
+asarUnpack:
+  - node_modules/koffi/**
+compression: normal
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: zip
+      arch: [x64]
+  icon: build/icon.ico
+  executableName: MultiMenu
+  requestedExecutionLevel: asInvoker
+  # Applies to the zip (portable) target; the installer overrides it below.
+  artifactName: MultiMenu-Portable.${ext}
+nsis:
+  artifactName: MultiMenu-Setup.${ext}
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  shortcutName: MultiMenu
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  installerHeaderIcon: build/icon.ico
+  installerSidebar: build/installerSidebar.bmp
+  uninstallerSidebar: build/installerSidebar.bmp
+  installerHeader: build/installerHeader.bmp
+  uninstallDisplayName: MultiMenu
+  license: LICENSE.txt
+  runAfterFinish: true
+  deleteAppDataOnUninstall: false
+publish: null

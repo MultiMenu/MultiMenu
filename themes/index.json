@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "about": "Themes for the MultiMenu theme gallery. Each code is a MultiMenu 2.0 theme share code (Theme studio → Share as code).",
+  "themes": [
+    {
+      "name": "Aurora",
+      "author": "MultiMenu",
+      "code": "MM2-theme-HY3BCsIwEAX_5Z330EQqsjfBgx_gD6TpEgNpUraJUkr_XeJ1mGEOfMCGkN0iYNybFnUgOO8l12cTsLkOhNVpjT7JBq7ahFDf0osDm_iSZ6f7X7a3gRBS-YLNZSBMqSnYWsIUXvvaH0HdHCVXdPaIC3gcz_MH-1fiy942"
+    },
+    {
+      "name": "Sakura",
+      "author": "MultiMenu",
+      "code": "MM2-theme-HY2xDsIwDAX_5c0eGkoXzwzs8ANuaoWINK3cBFRV_XcU1tOd7sAH7AhZZgXjIe9qAoJ4r7ncq4L7viOsYiX6pBu4WFVCeWkrDmzqlzyJ7X_ZDYSQli_YuY4wpmrgy5Uwhue-tkUwmaLmgsZucQYP3Xn-AA-0m7idy5"
+    },
+    {
+      "name": "Deep sea",
+      "author": "MultiMenu",
+      "code": "MM2-theme-JY3NCsIwEAZfRb7zHmLFgnvuwQfwBbbpEgNpGvKjlNJ3l-B1mGEOfMBXQpRVwZhU06WogCDWaqzPpuDBGEKSXL0NWsA1NyXUt_bmQFG7xUXy_pdvd4IL2xf8MIQ5tAweRsLsXnvqE5dl8RorOpv8Ch7Nef4A-1psrr4m"
+    },
+    {
+      "name": "Toxic",
+      "author": "MultiMenu",
+      "code": "MM2-theme-Hc1BDoMgEEbhu_zrWciCNp11Fz2AF0CcUBIEM0KrMd69oduXL3knPmBDyG4RMMayRw-C815yfTUBPyxhdVqjT7KBqzYh1Ld0f2ITX_Ls9PhbYwdCSOULNveBMKWmYHMjTGE81n4I6uYouaK3Z1zA1l7XDw-1q6aegm"
+    },
+    {
+      "name": "Sunset",
+      "author": "MultiMenu",
+      "code": "MM2-theme-JY0xDsIwEAT_srWLBERzNQU9fMB2TsaSc4nOZ1AU5e-RodtidmbHBzQ6iJ8ZhGeTygYHHyOLPRqDLoPD6tVyLFxBpo0d7M39sKNyXGTyuv3Ya4dTWb6gsc9Qmv4NIb22tSeS-imz9EhI9zyDbsNxnA-1rp7s72"
+    },
+    {
+      "name": "Gold rush",
+      "author": "MultiMenu",
+      "code": "MM2-theme-HY1NCsIwFAavIt_6LYwYkLcW9ABeIE0eaSBNSn4qpfTuErfDDHNgAytCMouA8crRXUqvMwjGWknt3QV814TVlBZslApupQuhzTKaA1VsTs6U_e_eNMHH_AUrdSVMsRewehAm_9nXMfHFuCCpYbBnWMBan-cP-17jf09d"
+    },
+    {
+      "name": "Frost",
+      "author": "MultiMenu",
+      "code": "MM2-theme-HY3NCsMgEAbf5TvvwfSH0j2X0gfoCxizWMFoWDUlhLx7sbc5zDA7VvBASHYWMJ6aSwXBOiepvpqAh7shLFZrcFEKuGoTQv1ID3YUcTlNVre_fBoMwcf8Bd8MYYxNwedO_r0t_eDVTkFSn4z-EWbw5XocPw-1su32e6"
+    },
+    {
+      "name": "Blood moon",
+      "author": "MultiMenu",
+      "code": "MM2-theme-HY1BCsIwEEWvIn-dRVqtyCzFhQfoBWIyxECSKWmilNK7S9x9Hu_xd3xAg0I2iUG4RxF3SiIZCsZazvXZGHSeJoXFlBps5BVUS2OF-uZe7VjZSnambH95vGkFH-ULGi5a4RVbAY19-Xlb-o8vxgXOFZ09QgJd9XH8AA-1b7ttn8"
+    },
+    {
+      "name": "Matrix",
+      "author": "MultiMenu",
+      "code": "MM2-theme-RY0xCsMwEAT_svUVVsAErk7hxl0-cJEvjuAsGUlOYoz_HlSlW4YZ9sAb7AhRFgVjlJrDFwTxXmMdNgW7S09YJdfgTQv4KVaUUF_akgNFfYqT5P1vz5Y-YNd3hIdtGdzGfN_X9lGShQkN3MICvnbn-QM-141m87b"
+    },
+    {
+      "name": "Lavender",
+      "author": "MultiMenu",
+      "code": "MM2-theme-HY3BDoIwEAX_5Z33gGiN2bMHDx79gaXd1CalkNJCCOHfTb1OZjIHVvCFkGRUMN6yanKaQRBrNZVXVXBvDGGWXIKNuoBLrkooX23NgUXtlJzk_S9fu47g47SB7x1hiDWD-wdh8J99bhOfxQVNBY09wwi-mfP8AQ-066vcyo"
+    },
+    {
+      "name": "Cyber",
+      "author": "MultiMenu",
+      "code": "MM2-theme-Hc1BCsMgEEbhu_zrWURooJ1tuugBegE1gxGMCRNtkZC7F7t9fPBOfMCGkO0qYEzNiYJgvZdcXlXA40jYrZbokxzgolUIZZHuTxzitzxbbX9rHgMhpO0LNveB4FJVsLkRXHi3vR-C2jlKLujtGdc-uK4f-042ugjf"
+    },
+    {
+      "name": "Graphite",
+      "author": "MultiMenu",
+      "code": "MM2-theme-RY0xDoMwEAT_srULoEhxdSR4QD5wMQdYOmzLNokQ4u_RVelGq1nNhQ-od4i8Cwhj4byFJnBg7yW26RDQMHQOmUsLXqWCFtYqDm0TO12o4lOcuZx_e9X0BRm99Sig3mh9ndkqNWmYYcMz7KBHd98_-140rfn1"
+    }
+  ]
+}
